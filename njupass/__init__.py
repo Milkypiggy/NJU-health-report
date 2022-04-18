@@ -10,10 +10,11 @@ import requests
 import re
 import os
 from io import BytesIO
+import ddddocr
 
 URL_NJU_UIA_AUTH = 'https://authserver.nju.edu.cn/authserver/login'
 URL_NJU_ELITE_LOGIN = 'http://elite.nju.edu.cn/jiaowu/login.do'
-
+ocr = ddddocr.Ddddocr()
 
 class NjuUiaAuth:
     """
@@ -48,7 +49,11 @@ class NjuUiaAuth:
         """
         url = 'https://authserver.nju.edu.cn/authserver/captcha.html'
         res = self.session.get(url, stream=True)
-        return BytesIO(res.content)
+        img = res.content
+        captcha = str(ocr.classification(img))
+        return captcha
+        #return BytesIO(res.content)
+        
 
     def parsePassword(self, password):
         """
