@@ -46,3 +46,8 @@
 - [ ] 自动识别验证码
 - [ ] 增加更多的最近核酸检测时间方案
 - [ ] 增加 `DISABLE` 项，以支持在保留项目的同时暂停自动打卡。
+
+## 2022.04.18 Update
+1. 增加了验证码支持
+2. 增加了get_zjhs_date的TRUEDATE模式，可到SECRET中添加COVID_TEST_METHOD为TRUEDATE或YESTERDAY（默认）
+3. 如使用TRUEDATE模式，请到SECRET中添加NJU_HESUANDATE，格式参考：2022-04-10 15
