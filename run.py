@@ -17,6 +17,8 @@ def get_zjhs_time(method='YESTERDAY'):
     yesterday = today + datetime.timedelta(-1)
     if method == 'YESTERDAY':
         return yesterday.strftime("%Y-%m-%d %-H")
+    elif method == 'TRUEDATE':
+        return os.getenv('NJU_HESUANDATE')
 
 
 if __name__ == "__main__":
@@ -40,10 +42,12 @@ if __name__ == "__main__":
     log.info('尝试登录...')
 
     if auth.needCaptcha(username):
-        log.error("统一认证平台需要输入验证码才能继续，请手动登录后再重试")
-        os._exit(1)
+        log.info("正在识别验证码...")
+        captchaResponse = auth.getCaptchaCode()
+        #log.error("统一认证平台需要输入验证码才能继续，请手动登录后再重试")
+        #os._exit(1)
 
-    ok = auth.login(username, password)
+    ok = auth.login(username, password, captchaResponse)
     if not ok:
         log.error("登录失败，可能是密码错误或网络问题。")
         os._exit(1)
@@ -62,7 +66,7 @@ if __name__ == "__main__":
         if dk_info['TBZT'] == "0":
             wid = dk_info['WID']
             data = "?WID={}&IS_TWZC=1&CURR_LOCATION={}&ZJHSJCSJ={}&JRSKMYS=1&IS_HAS_JKQK=1&JZRJRSKMYS=1&SFZJLN=0".format(
-                wid, curr_location, get_zjhs_time())
+                wid, curr_location, get_zjhs_time(method = method))
             url = URL_JKDK_APPLY + data
             log.info('正在打卡')
             auth.session.get(url)
