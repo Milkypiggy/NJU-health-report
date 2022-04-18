@@ -14,7 +14,7 @@ import ddddocr
 
 URL_NJU_UIA_AUTH = 'https://authserver.nju.edu.cn/authserver/login'
 URL_NJU_ELITE_LOGIN = 'http://elite.nju.edu.cn/jiaowu/login.do'
-ocr = ddddocr.Ddddocr()
+ocr = ddddocr.DdddOcr()
 
 class NjuUiaAuth:
     """
