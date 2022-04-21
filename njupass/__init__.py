@@ -25,7 +25,7 @@ class NjuUiaAuth:
     def __init__(self):
         self.session = requests.Session()
         self.session.headers.update({
-           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0'
+           'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12F70 Safari/600.1.4'
         })
 
         r = self.session.get(URL_NJU_UIA_AUTH)
