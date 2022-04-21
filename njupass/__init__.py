@@ -95,7 +95,7 @@ class NjuUiaAuth:
             'captchaResponse': captchaResponse,
             "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12F70 Safari/600.1.4"
         }
-        r = self.session.post(URL_NJU_UIA_AUTH, data=data,
+        r = self.session.post(URL_NJU_UIA_AUTH, data=data, headers={'Connection':'close'},
                               allow_redirects=False)
         return r.status_code == 302
 
