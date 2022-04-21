@@ -6,7 +6,7 @@ import time
 import logging
 import datetime
 from pytz import timezone
-from urllib.pass import urlencode
+from urllib.parse import urlencode
 
 URL_JKDK_LIST = 'http://ehallapp.nju.edu.cn/xgfw/sys/yqfxmrjkdkappnju/apply/getApplyInfoList.do'
 URL_JKDK_APPLY = 'http://ehallapp.nju.edu.cn/xgfw/sys/yqfxmrjkdkappnju/apply/saveApplyInfos.do'
