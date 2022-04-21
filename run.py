@@ -75,7 +75,7 @@ if __name__ == "__main__":
             'ZJHSJCSJ': get_zjhs_time(method = method),
             'JRSKMYS': 1,
             'IS_HAS_JKQK': 1,
-            'JZRJRSKMYS': 1
+            'JZRJRSKMYS': 1,
             'SFZJLN': 0
         }
         headers = {
