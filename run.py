@@ -76,7 +76,7 @@ if __name__ == "__main__":
             'JRSKMYS': 1,
             'IS_HAS_JKQK': 1,
             'JZRJRSKMYS': 1,
-            'SFZJLN': 0
+            'SFZJLN': 1
         }
         headers = {
             'referer': URL_JDKD_INDEX,
